@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravellerGlobal - Sri Lankan Travel Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Toggle -->
+    <div class="view-switcher">
+        <button class="switch-btn active" data-view="customer">Customer View</button>
+        <button class="switch-btn" data-view="agent">Agent Partner Portal</button>
+    </div>
+
+    <!-- Customer View -->
+    <div id="customer-view" class="view-container active">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">TG</div>
+                <span class="logo-text">TravellerGlobal</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔍</span>
+                    <span>Search Packages</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">📋</span>
+                    <span>My Bookings</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">💬</span>
+                    <span>WhatsApp Support</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </a>
+            </nav>
+            <div class="halal-badge">
+                <span class="halal-icon">☪</span>
+                <span>Halal Certified Services</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1 class="page-title">Welcome back, Ahmed!</h1>
+                <div class="header-actions">
+                    <button class="icon-btn">
+                        <span class="notification-dot"></span>
+                        🔔
+                    </button>
+                    <div class="user-avatar">AM</div>
+                </div>
+            </header>
+
+            <!-- Hero Section with Background -->
+            <section class="hero-section" style="background-image: linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.85)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600');">
+                <div class="hero-content">
+                    <h2 class="hero-title">Discover Beautiful Sri Lanka</h2>
+                    <p class="hero-subtitle">From ancient temples to pristine beaches - Your perfect journey awaits</p>
+                    <button class="btn-primary">Explore Packages</button>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <div class="action-card emerald">
+                    <div class="action-icon">✈️</div>
+                    <div class="action-content">
+                        <h3>Flight Booking</h3>
+                        <p>Compare & book flights</p>
+                    </div>
+                    <span class="action-arrow">→</span>
+                </div>
+                <div class="action-card gold">
+                    <div class="action-icon">🏨</div>
+                    <div class="action-content">
+                        <h3>Hotel Search</h3>
+                        <p>Find perfect stays</p>
+                    </div>
+                    <span class="action-arrow">→</span>
+                </div>
+                <div class="action-card emerald">
+                    <div class="action-icon">🚗</div>
+                    <div class="action-content">
+                        <h3>Transport</h3>
+                        <p>Rent cars & tours</p>
+                    </div>
+                    <span class="action-arrow">→</span>
+                </div>
+            </section>
+
+            <!-- Featured Destinations -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Destinations</h2>
+                    <a href="#" class="link-primary">View all →</a>
+                </div>
+                <div class="destinations-grid">
+                    <div class="destination-card">
+                        <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600');">
+                            <div class="destination-badge">Popular</div>
+                        </div>
+                        <div class="destination-content">
+                            <h3>Sigiriya Rock Fortress</h3>
+                            <p class="destination-location">📍 Central Province</p>
+                            <div class="destination-footer">
+                                <span class="price">From LKR 15,000</span>
+                                <button class="btn-secondary-sm">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1562659473-fd8db84e6f14?w=600');">
+                            <div class="destination-badge gold-badge">Best Value</div>
+                        </div>
+                        <div class="destination-content">
+                            <h3>Galle Fort</h3>
+                            <p class="destination-location">📍 Southern Province</p>
+                            <div class="destination-footer">
+                                <span class="price">From LKR 12,500</span>
+                                <button class="btn-secondary-sm">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?w=600');">
+                        </div>
+                        <div class="destination-content">
+                            <h3>Ella Tea Plantations</h3>
+                            <p class="destination-location">📍 Uva Province</p>
+                            <div class="destination-footer">
+                                <span class="price">From LKR 18,000</span>
+                                <button class="btn-secondary-sm">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payment Gateways -->
+            <section class="section">
+                <h2 class="section-title">Trusted Payment Methods</h2>
+                <div class="payment-grid">
+                    <div class="payment-card">
+                        <div class="payment-logo">💳</div>
+                        <span>Visa/Mastercard</span>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-logo">📱</div>
+                        <span>Dialog mCash</span>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-logo">📲</div>
+                        <span>eZ Cash</span>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-logo">🏦</div>
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-logo">💰</div>
+                        <span>Cash Payment</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Agent Portal View -->
+    <div id="agent-view" class="view-container">
+        <!-- Sidebar -->
+        <aside class="sidebar sidebar-agent">
+            <div class="logo">
+                <div class="logo-icon agent-logo">TG</div>
+                <span class="logo-text">Agent Portal</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <span class="icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔄</span>
+                    <span>Booking Pipeline</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">👥</span>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">💵</span>
+                    <span>Commissions</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">📈</span>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">💬</span>
+                    <span>WhatsApp CRM</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1 class="page-title">Agent Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn-primary-sm">+ New Booking</button>
+                    <button class="icon-btn">🔔</button>
+                    <div class="user-avatar agent-avatar">SA</div>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon emerald-bg">📋</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Total Leads</span>
+                        <h3 class="stat-value">24</h3>
+                        <span class="stat-change positive">↑ 12% this month</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon gold-bg">✅</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Bookings</span>
+                        <h3 class="stat-value">18</h3>
+                        <span class="stat-change positive">↑ 8% this month</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue-bg">✈️</div>
+                    <div class="stat-content">
+                        <span class="stat-label">In Travel</span>
+                        <h3 class="stat-value">7</h3>
+                        <span class="stat-change neutral">— Same as last week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon purple-bg">💰</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Commission (MTD)</span>
+                        <h3 class="stat-value">LKR 145K</h3>
+                        <span class="stat-change positive">↑ 24% vs last month</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Pipeline -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Booking Pipeline</h2>
+                    <div class="pipeline-filters">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">This Week</button>
+                        <button class="filter-btn">This Month</button>
+                    </div>
+                </div>
+
+                <div class="pipeline-board">
+                    <!-- Lead Column -->
+                    <div class="pipeline-column">
+                        <div class="column-header lead-header">
+                            <span class="column-title">Lead</span>
+                            <span class="column-count">6</span>
+                        </div>
+                        <div class="pipeline-cards">
+                            <div class="pipeline-card">
+                                <div class="card-header">
+                                    <span class="customer-name">Fatima Hassan</span>
+                                    <button class="whatsapp-btn">💬</button>
+                                </div>
+                                <p class="trip-details">7-Day Colombo + Kandy Tour</p>
+                                <div class="card-meta">
+                                    <span class="date">📅 Mar 15-22, 2026</span>
+                                    <span class="value">LKR 185K</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag">Family</span>
+                                    <span class="tag">Halal</span>
+                                </div>
+                            </div>
+                            <div class="pipeline-card">
+                                <div class="card-header">
+                                    <span class="customer-name">Ibrahim Malik</span>
+                                    <button class="whatsapp-btn">💬</button>
+                                </div>
+                                <p class="trip-details">Honeymoon Package - Maldives</p>
+                                <div class="card-meta">
+                                    <span class="date">📅 Apr 1-7, 2026</span>
+                                    <span class="value">LKR 320K</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag">Couple</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Booked Column -->
+                    <div class="pipeline-column">
+                        <div class="column-header booked-header">
+                            <span class="column-title">Booked</span>
+                            <span class="column-count">11</span>
+                        </div>
+                        <div class="pipeline-cards">
+                            <div class="pipeline-card">
+                                <div class="card-header">
+                                    <span class="customer-name">Aisha Rahman</span>
+                                    <button class="whatsapp-btn">💬</button>
+                                </div>
+                                <p class="trip-details">Ella & Nuwara Eliya 5D/4N</p>
+                                <div class="card-meta">
+                                    <span class="date">📅 Mar 20-24, 2026</span>
+                                    <span class="value">LKR 95K</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag tag-success">Paid 50%</span>
+                                </div>
+                            </div>
+                            <div class="pipeline-card">
+                                <div class="card-header">
+                                    <span class="customer-name">Mohammed Ali</span>
+                                    <button class="whatsapp-btn">💬</button>
+                                </div>
+                                <p class="trip-details">Cultural Triangle Tour</p>
+                                <div class="card-meta">
+                                    <span class="date">📅 Mar 25-30, 2026</span>
+                                    <span class="value">LKR 142K</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag tag-success">Fully Paid</span>
+                                    <span class="tag">Halal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- In Travel Column -->
+                    <div class="pipeline-column">
+                        <div class="column-header travel-header">
+                            <span class="column-title">In Travel</span>
+                            <span class="column-count">7</span>
+                        </div>
+                        <div class="pipeline-cards">
+                            <div class="pipeline-card">
+                                <div class="card-header">
+                                    <span class="customer-name">Zainab Yusuf</span>
+                                    <button class="whatsapp-btn">💬</button>
+                                </div>
+                                <p class="trip-details">Southern Coast Beach Tour</p>
+                                <div class="card-meta">
+                                    <span class="date">📅 Feb 18-25, 2026</span>
+                                    <span class="value">LKR 168K</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag tag-warning">Day 5 of 8</span>
+                                </div>
+                                <div class="live-tracking">
+                                    <span class="pulse"></span>
+                                    <span class="tracking-text">Live tracking active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Completed Column -->
+                    <div class="pipeline-column">
+                        <div class="column-header completed-header">
+                            <span class="column-title">Completed</span>
+                            <span class="column-count">32</span>
+                        </div>
+                        <div class="pipeline-cards">
+                            <div class="pipeline-card">
+                                <div class="card-header">
+                                    <span class="customer-name">Layla Ahmed</span>
+                                    <button class="whatsapp-btn">💬</button>
+                                </div>
+                                <p class="trip-details">Sigiriya & Dambulla Tour</p>
+                                <div class="card-meta">
+                                    <span class="date">📅 Feb 1-5, 2026</span>
+                                    <span class="value">LKR 78K</span>
+                                </div>
+                                <div class="card-rating">
+                                    ⭐⭐⭐⭐⭐ <span class="rating-text">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Aggregator -->
+            <section class="section">
+                <h2 class="section-title">API Aggregator - Quick Search</h2>
+                <div class="aggregator-grid">
+                    <div class="aggregator-card">
+                        <div class="aggregator-icon">✈️</div>
+                        <h3>Flight API</h3>
+                        <p>Amadeus, Sabre</p>
+                        <span class="status-badge active">Connected</span>
+                    </div>
+                    <div class="aggregator-card">
+                        <div class="aggregator-icon">🏨</div>
+                        <h3>Hotel API</h3>
+                        <p>Booking.com, Agoda</p>
+                        <span class="status-badge active">Connected</span>
+                    </div>
+                    <div class="aggregator-card">
+                        <div class="aggregator-icon">🚗</div>
+                        <h3>Transport API</h3>
+                        <p>PickMe, Uber</p>
+                        <span class="status-badge active">Connected</span>
+                    </div>
+                    <div class="aggregator-card">
+                        <div class="aggregator-icon">🎫</div>
+                        <h3>Activities API</h3>
+                        <p>GetYourGuide</p>
+                        <span class="status-badge pending">Setup Pending</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

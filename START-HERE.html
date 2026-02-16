@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravellerGlobal - Start Here</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10B981, #F59E0B);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #10B981, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #94A3B8;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #10B981;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: #94A3B8;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #F59E0B;
+            border: 2px solid #F59E0B;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .feature-list {
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .feature-list ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .feature-list li {
+            padding: 12px;
+            background: #0F172A;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        .feature-list li::before {
+            content: '✅ ';
+            margin-right: 8px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .stat-box {
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        .quickstart {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1));
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .quickstart-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .quickstart-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step {
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10B981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: #94A3B8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #334155;
+            color: #64748B;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quickstart-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">TG</div>
+            <h1>TravellerGlobal Design System</h1>
+            <p class="subtitle">High-Fidelity UI/UX Design for Sri Lankan Travel Agency Platform</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-value">10</div>
+                <div class="stat-label">Files Delivered</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">25+</div>
+                <div class="stat-label">Components</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Screen Sizes</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Doc Pages</div>
+            </div>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="quickstart">
+            <h2 class="quickstart-title">🚀 Get Started in 3 Steps</h2>
+            <p style="color: #94A3B8; margin-bottom: 20px;">Choose your path based on your role:</p>
+
+            <div class="quickstart-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">View Designs</div>
+                    <div class="step-desc">Open index.html for desktop, mobile.html for mobile</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Explore Features</div>
+                    <div class="step-desc">Toggle Customer/Agent views, test interactions</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Read Docs</div>
+                    <div class="step-desc">Review README.md, FEATURES.md, QUICKSTART.md</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Features -->
+        <section class="section">
+            <h2 class="section-title">✨ Key Features</h2>
+            <div class="feature-list">
+                <ul>
+                    <li>Multi-Role Dashboard (Customer + Agent)</li>
+                    <li>Booking Pipeline Management</li>
+                    <li>WhatsApp CRM Integration</li>
+                    <li>Sri Lankan Payment Gateways</li>
+                    <li>Halal-Friendly Design</li>
+                    <li>Mobile-First Responsive</li>
+                    <li>API Aggregator Display</li>
+                    <li>Commission Tracking</li>
+                    <li>Live Travel Tracking</li>
+                    <li>Drag-and-Drop Interface</li>
+                    <li>Emerald & Gold Branding</li>
+                    <li>Comprehensive Documentation</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Interface Cards -->
+        <section class="section">
+            <h2 class="section-title">🖥️ Interface Previews</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Desktop Interface</h3>
+                    <p class="card-description">
+                        Full-featured desktop UI with Customer View and Agent Partner Portal.
+                        Toggle between roles, manage bookings, track commissions.
+                    </p>
+                    <a href="index.html" class="btn btn-primary">Open Desktop UI →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3 class="card-title">Mobile Interface</h3>
+                    <p class="card-description">
+                        Touch-optimized mobile design with bottom navigation, slide-out menu,
+                        and swipeable destinations. Perfect for on-the-go access.
+                    </p>
+                    <a href="mobile.html" class="btn btn-primary">Open Mobile UI →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">Design Specs</h3>
+                    <p class="card-description">
+                        Complete design system with colors, typography, spacing, components,
+                        and responsive breakpoints. Dark-themed documentation.
+                    </p>
+                    <a href="design-specs.html" class="btn btn-primary">View Design System →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Cards -->
+        <section class="section">
+            <h2 class="section-title">📚 Documentation</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">README</h3>
+                    <p class="card-description">
+                        Comprehensive project documentation covering all features, design decisions,
+                        installation, and usage instructions.
+                    </p>
+                    <a href="README.md" class="btn btn-secondary">Read README →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Quick Start</h3>
+                    <p class="card-description">
+                        5-minute setup guide with code examples, customization tips,
+                        and troubleshooting. Perfect for developers.
+                    </p>
+                    <a href="QUICKSTART.md" class="btn btn-secondary">Quick Start Guide →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <h3 class="card-title">Features</h3>
+                    <p class="card-description">
+                        Complete feature matrix covering booking pipeline, payment gateways,
+                        API integrations, and Halal-friendly features.
+                    </p>
+                    <a href="FEATURES.md" class="btn btn-secondary">View Features →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📦</div>
+                    <h3 class="card-title">Project Summary</h3>
+                    <p class="card-description">
+                        High-level overview of deliverables, design highlights, technical specs,
+                        and next steps for implementation.
+                    </p>
+                    <a href="PROJECT-SUMMARY.md" class="btn btn-secondary">View Summary →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3 class="card-title">Design Brief</h3>
+                    <p class="card-description">
+                        Original project requirements, visual identity guidelines,
+                        screen layouts, and deliverable specifications.
+                    </p>
+                    <a href="design-brief.md" class="btn btn-secondary">View Brief →</a>
+                </div>
+
+                <div class="card" style="border: 2px solid #F59E0B;">
+                    <div class="card-icon">💬</div>
+                    <h3 class="card-title">Give Feedback</h3>
+                    <p class="card-description">
+                        Share your thoughts on the design! Select sections you reviewed
+                        and provide constructive feedback to help us improve.
+                    </p>
+                    <a href="feedback.html" class="btn btn-primary" style="background: linear-gradient(135deg, #F59E0B, #D97706);">Share Feedback →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role-Based Guide -->
+        <section class="section">
+            <h2 class="section-title">👥 Choose Your Path</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">👨‍💼</div>
+                    <h3 class="card-title">For Stakeholders</h3>
+                    <p class="card-description">
+                        <strong>Start here:</strong><br>
+                        1. Open index.html (Desktop UI)<br>
+                        2. Toggle Customer/Agent views<br>
+                        3. Read PROJECT-SUMMARY.md<br>
+                        4. Review FEATURES.md
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">For Designers</h3>
+                    <p class="card-description">
+                        <strong>Start here:</strong><br>
+                        1. Open design-specs.html<br>
+                        2. Review color palette & typography<br>
+                        3. Study component library<br>
+                        4. Export to Figma/Sketch
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">👨‍💻</div>
+                    <h3 class="card-title">For Developers</h3>
+                    <p class="card-description">
+                        <strong>Start here:</strong><br>
+                        1. Read QUICKSTART.md<br>
+                        2. Study HTML/CSS/JS files<br>
+                        3. Set up dev environment<br>
+                        4. Connect to backend APIs
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">For Product Managers</h3>
+                    <p class="card-description">
+                        <strong>Start here:</strong><br>
+                        1. Read FEATURES.md thoroughly<br>
+                        2. Review user personas<br>
+                        3. Prioritize development phases<br>
+                        4. Define user stories
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="section">
+            <h2 class="section-title">🔧 Technology & Standards</h2>
+            <div class="feature-list">
+                <ul>
+                    <li>HTML5 (Semantic structure)</li>
+                    <li>CSS3 (Modern layouts & animations)</li>
+                    <li>Vanilla JavaScript (No dependencies)</li>
+                    <li>Inter Font (Google Fonts)</li>
+                    <li>Responsive Design (Mobile-first)</li>
+                    <li>Accessibility (WCAG ready)</li>
+                    <li>Cross-browser Compatible</li>
+                    <li>Performance Optimized</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- File Structure -->
+        <section class="section">
+            <h2 class="section-title">📁 Project Structure</h2>
+            <div class="feature-list" style="font-family: 'Courier New', monospace; font-size: 13px;">
+                <ul style="grid-template-columns: 1fr;">
+                    <li>🖥️ Desktop: index.html, styles.css, script.js</li>
+                    <li>📱 Mobile: mobile.html, mobile-styles.css, mobile-script.js</li>
+                    <li>🎨 Design: design-specs.html</li>
+                    <li>📚 Docs: README.md, FEATURES.md, QUICKSTART.md</li>
+                    <li>📋 Extras: design-brief.md, PROJECT-SUMMARY.md</li>
+                    <li>🚀 This Page: START-HERE.html</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p style="font-size: 16px; margin-bottom: 8px;">TravellerGlobal Design System v1.0</p>
+            <p style="font-size: 14px;">Built with ❤️ for Sri Lankan Travel Excellence</p>
+            <p style="font-size: 13px; margin-top: 16px; color: #475569;">
+                Featuring Emerald Green & Gold • Halal-Friendly • Mobile-First • WhatsApp Integration
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Feedback - TravellerGlobal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #10B981, #F59E0B);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 16px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #10B981, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #94A3B8;
+        }
+
+        .info-banner {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .info-banner h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #10B981;
+        }
+
+        .info-banner p {
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        .feedback-form {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 32px;
+        }
+
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+            color: white;
+        }
+
+        .form-label .required {
+            color: #EF4444;
+            margin-left: 4px;
+        }
+
+        .form-description {
+            font-size: 14px;
+            color: #94A3B8;
+            margin-bottom: 16px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 16px;
+            background: #0F172A;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #10B981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        textarea.input-field {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .checkbox-card {
+            background: #0F172A;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checkbox-card:hover {
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .checkbox-card.selected {
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .checkbox-card input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #10B981;
+        }
+
+        .checkbox-label {
+            flex: 1;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .checkbox-icon {
+            font-size: 20px;
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .rating-option {
+            flex: 1;
+            min-width: 140px;
+            background: #0F172A;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .rating-option:hover {
+            border-color: #10B981;
+            transform: translateY(-2px);
+        }
+
+        .rating-option.selected {
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .rating-option input[type="radio"] {
+            display: none;
+        }
+
+        .rating-emoji {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .rating-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid #10B981;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .success-message h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #10B981;
+        }
+
+        .success-message p {
+            color: #94A3B8;
+            margin-bottom: 20px;
+        }
+
+        .feedback-summary {
+            background: #0F172A;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 13px;
+            color: #94A3B8;
+            font-family: 'Courier New', monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: transparent;
+            color: #F59E0B;
+            border: 2px solid #F59E0B;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            margin-top: 16px;
+        }
+
+        .back-btn:hover {
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .char-counter {
+            font-size: 12px;
+            color: #64748B;
+            text-align: right;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rating-group {
+                flex-direction: column;
+            }
+
+            .rating-option {
+                min-width: auto;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">TG</div>
+            <h1>Design Feedback</h1>
+            <p class="subtitle">Help us improve the TravellerGlobal UI/UX Design</p>
+        </div>
+
+        <!-- Info Banner -->
+        <div class="info-banner">
+            <h3>📋 Your Feedback Matters!</h3>
+            <p>Select the sections you reviewed and share your thoughts. Your feedback will be collected and shared with the design team.</p>
+        </div>
+
+        <!-- Success Message (Hidden by default) -->
+        <div class="success-message" id="successMessage">
+            <div class="success-icon">✅</div>
+            <h3>Feedback Submitted Successfully!</h3>
+            <p>Thank you for your valuable input. Your feedback has been recorded.</p>
+            <div class="feedback-summary" id="feedbackSummary"></div>
+            <a href="START-HERE.html" class="back-btn">← Back to Design</a>
+        </div>
+
+        <!-- Feedback Form -->
+        <form class="feedback-form" id="feedbackForm">
+            <!-- Your Information -->
+            <div class="form-section">
+                <label class="form-label">
+                    Your Name <span class="required">*</span>
+                </label>
+                <input type="text" class="input-field" id="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">Email (Optional)</label>
+                <input type="email" class="input-field" id="email" placeholder="your@email.com">
+            </div>
+
+            <!-- Overall Rating -->
+            <div class="form-section">
+                <label class="form-label">
+                    Overall Design Rating <span class="required">*</span>
+                </label>
+                <p class="form-description">How would you rate the overall design quality?</p>
+                <div class="rating-group">
+                    <label class="rating-option">
+                        <input type="radio" name="rating" value="excellent" required>
+                        <div class="rating-emoji">🌟</div>
+                        <div class="rating-label">Excellent</div>
+                    </label>
+                    <label class="rating-option">
+                        <input type="radio" name="rating" value="good" required>
+                        <div class="rating-emoji">👍</div>
+                        <div class="rating-label">Good</div>
+                    </label>
+                    <label class="rating-option">
+                        <input type="radio" name="rating" value="average" required>
+                        <div class="rating-emoji">😐</div>
+                        <div class="rating-label">Average</div>
+                    </label>
+                    <label class="rating-option">
+                        <input type="radio" name="rating" value="needs-work" required>
+                        <div class="rating-emoji">🔧</div>
+                        <div class="rating-label">Needs Work</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Sections Reviewed -->
+            <div class="form-section">
+                <label class="form-label">
+                    Which Sections Did You Review? <span class="required">*</span>
+                </label>
+                <p class="form-description">Select all sections you looked at (minimum 1 required)</p>
+                <div class="section-grid">
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="customer-dashboard">
+                        <span class="checkbox-icon">🏠</span>
+                        <span class="checkbox-label">Customer Dashboard</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="agent-portal">
+                        <span class="checkbox-icon">👔</span>
+                        <span class="checkbox-label">Agent Portal</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="booking-pipeline">
+                        <span class="checkbox-icon">📊</span>
+                        <span class="checkbox-label">Booking Pipeline</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="mobile-ui">
+                        <span class="checkbox-icon">📱</span>
+                        <span class="checkbox-label">Mobile UI</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="payment-gateways">
+                        <span class="checkbox-icon">💳</span>
+                        <span class="checkbox-label">Payment Gateways</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="color-scheme">
+                        <span class="checkbox-icon">🎨</span>
+                        <span class="checkbox-label">Color Scheme</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="typography">
+                        <span class="checkbox-icon">✏️</span>
+                        <span class="checkbox-label">Typography</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="api-aggregator">
+                        <span class="checkbox-icon">🔌</span>
+                        <span class="checkbox-label">API Aggregator</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="whatsapp-integration">
+                        <span class="checkbox-icon">💬</span>
+                        <span class="checkbox-label">WhatsApp Integration</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="sections" value="halal-features">
+                        <span class="checkbox-icon">☪</span>
+                        <span class="checkbox-label">Halal Features</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Detailed Feedback -->
+            <div class="form-section">
+                <label class="form-label">
+                    What Did You Like? <span class="required">*</span>
+                </label>
+                <p class="form-description">Share what you found impressive or well-designed</p>
+                <textarea class="input-field" id="positives" placeholder="E.g., I loved the color scheme and the booking pipeline is very intuitive..." required maxlength="1000"></textarea>
+                <div class="char-counter"><span id="positivesCount">0</span>/1000 characters</div>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    What Could Be Improved? <span class="required">*</span>
+                </label>
+                <p class="form-description">Constructive feedback on areas that need work</p>
+                <textarea class="input-field" id="improvements" placeholder="E.g., The mobile navigation could be more prominent, font sizes on small screens..." required maxlength="1000"></textarea>
+                <div class="char-counter"><span id="improvementsCount">0</span>/1000 characters</div>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">Additional Comments (Optional)</label>
+                <p class="form-description">Any other thoughts, suggestions, or questions?</p>
+                <textarea class="input-field" id="additional" placeholder="Share any additional feedback..." maxlength="500"></textarea>
+                <div class="char-counter"><span id="additionalCount">0</span>/500 characters</div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        // Character counters
+        const updateCharCount = (textareaId, counterId, max) => {
+            const textarea = document.getElementById(textareaId);
+            const counter = document.getElementById(counterId);
+
+            textarea.addEventListener('input', () => {
+                const length = textarea.value.length;
+                counter.textContent = length;
+
+                if (length >= max * 0.9) {
+                    counter.style.color = '#F59E0B';
+                } else {
+                    counter.style.color = '#64748B';
+                }
+            });
+        };
+
+        updateCharCount('positives', 'positivesCount', 1000);
+        updateCharCount('improvements', 'improvementsCount', 1000);
+        updateCharCount('additional', 'additionalCount', 500);
+
+        // Checkbox card selection visual feedback
+        document.querySelectorAll('.checkbox-card input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    this.closest('.checkbox-card').classList.add('selected');
+                } else {
+                    this.closest('.checkbox-card').classList.remove('selected');
+                }
+            });
+        });
+
+        // Rating option selection visual feedback
+        document.querySelectorAll('.rating-option input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.rating-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.closest('.rating-option').classList.add('selected');
+            });
+        });
+
+        // Form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate at least one section is selected
+            const selectedSections = document.querySelectorAll('input[name="sections"]:checked');
+            if (selectedSections.length === 0) {
+                alert('Please select at least one section you reviewed.');
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                timestamp: new Date().toISOString(),
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value || 'Not provided',
+                rating: document.querySelector('input[name="rating"]:checked').value,
+                sections: Array.from(selectedSections).map(cb => cb.value),
+                positives: document.getElementById('positives').value,
+                improvements: document.getElementById('improvements').value,
+                additional: document.getElementById('additional').value || 'None'
+            };
+
+            // Format feedback summary
+            const summary = `
+=== DESIGN FEEDBACK ===
+Submitted: ${new Date(formData.timestamp).toLocaleString()}
+
+Name: ${formData.name}
+Email: ${formData.email}
+Overall Rating: ${formData.rating.toUpperCase()}
+
+Sections Reviewed:
+${formData.sections.map(s => '  • ' + s.replace(/-/g, ' ')).join('\n')}
+
+What They Liked:
+${formData.positives}
+
+Suggested Improvements:
+${formData.improvements}
+
+Additional Comments:
+${formData.additional}
+
+=== END FEEDBACK ===
+            `;
+
+            // Store in localStorage
+            const allFeedback = JSON.parse(localStorage.getItem('designFeedback') || '[]');
+            allFeedback.push(formData);
+            localStorage.setItem('designFeedback', JSON.stringify(allFeedback));
+
+            // Display success message
+            document.getElementById('feedbackForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            document.getElementById('feedbackSummary').textContent = summary;
+
+            // Console log (for development - can be sent to backend in production)
+            console.log('Feedback submitted:', formData);
+            console.log('Summary:', summary);
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // View all feedback (for admin/developer)
+        window.viewAllFeedback = function() {
+            const allFeedback = JSON.parse(localStorage.getItem('designFeedback') || '[]');
+            console.log('All Feedback Entries:', allFeedback);
+            return allFeedback;
+        };
+
+        // Export feedback as JSON (for admin/developer)
+        window.exportFeedback = function() {
+            const allFeedback = JSON.parse(localStorage.getItem('designFeedback') || '[]');
+            const dataStr = JSON.stringify(allFeedback, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `design-feedback-${Date.now()}.json`;
+            link.click();
+        };
+
+        console.log('%c💡 Developer Tips:', 'font-weight: bold; font-size: 14px; color: #10B981;');
+        console.log('%cView all feedback: viewAllFeedback()', 'color: #94A3B8;');
+        console.log('%cExport feedback as JSON: exportFeedback()', 'color: #94A3B8;');
+    </script>
+</body>
+</html>

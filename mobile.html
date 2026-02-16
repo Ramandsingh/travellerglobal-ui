@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravellerGlobal Mobile - Sri Lankan Travel Agency</title>
+    <link rel="stylesheet" href="mobile-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <button class="menu-btn">☰</button>
+        <div class="header-logo">
+            <div class="logo-icon">TG</div>
+            <span>TravellerGlobal</span>
+        </div>
+        <button class="notification-btn">
+            <span class="notification-dot"></span>
+            🔔
+        </button>
+    </header>
+
+    <!-- Mobile Hero Section -->
+    <section class="mobile-hero" style="background-image: linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.85)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800');">
+        <h1 class="mobile-hero-title">Discover Sri Lanka</h1>
+        <p class="mobile-hero-subtitle">Your perfect journey awaits</p>
+
+        <!-- Search Widget -->
+        <div class="search-widget">
+            <div class="search-tabs">
+                <button class="search-tab active">✈️ Flights</button>
+                <button class="search-tab">🏨 Hotels</button>
+                <button class="search-tab">🚗 Transport</button>
+            </div>
+
+            <div class="search-form">
+                <div class="form-group">
+                    <label>From</label>
+                    <input type="text" placeholder="Departure city" value="Colombo (CMB)">
+                </div>
+                <div class="form-group">
+                    <label>To</label>
+                    <input type="text" placeholder="Destination" value="Dubai (DXB)">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" value="2026-03-15">
+                    </div>
+                    <div class="form-group">
+                        <label>Travelers</label>
+                        <input type="number" value="2" min="1">
+                    </div>
+                </div>
+                <button class="search-btn">Search Flights</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="mobile-section">
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="quick-actions-mobile">
+            <div class="action-tile emerald">
+                <div class="tile-icon">📋</div>
+                <span>My Bookings</span>
+            </div>
+            <div class="action-tile gold">
+                <div class="tile-icon">💬</div>
+                <span>WhatsApp</span>
+            </div>
+            <div class="action-tile emerald">
+                <div class="tile-icon">🎫</div>
+                <span>Packages</span>
+            </div>
+            <div class="action-tile gold">
+                <div class="tile-icon">💰</div>
+                <span>Payments</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="mobile-section">
+        <div class="section-header-mobile">
+            <h2 class="section-title">Popular Destinations</h2>
+            <a href="#" class="view-all">View all →</a>
+        </div>
+
+        <div class="destinations-scroll">
+            <div class="destination-card-mobile">
+                <div class="destination-img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400');">
+                    <div class="destination-overlay">
+                        <span class="badge-mobile">Popular</span>
+                    </div>
+                </div>
+                <div class="destination-info">
+                    <h3>Sigiriya Rock</h3>
+                    <p class="location">📍 Central Province</p>
+                    <div class="price-row">
+                        <span class="price-mobile">From LKR 15,000</span>
+                        <button class="book-btn-mobile">Book</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destination-card-mobile">
+                <div class="destination-img" style="background-image: url('https://images.unsplash.com/photo-1562659473-fd8db84e6f14?w=400');">
+                    <div class="destination-overlay">
+                        <span class="badge-mobile gold">Best Value</span>
+                    </div>
+                </div>
+                <div class="destination-info">
+                    <h3>Galle Fort</h3>
+                    <p class="location">📍 Southern Province</p>
+                    <div class="price-row">
+                        <span class="price-mobile">From LKR 12,500</span>
+                        <button class="book-btn-mobile">Book</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destination-card-mobile">
+                <div class="destination-img" style="background-image: url('https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?w=400');">
+                    <div class="destination-overlay"></div>
+                </div>
+                <div class="destination-info">
+                    <h3>Ella Tea Country</h3>
+                    <p class="location">📍 Uva Province</p>
+                    <div class="price-row">
+                        <span class="price-mobile">From LKR 18,000</span>
+                        <button class="book-btn-mobile">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Bookings -->
+    <section class="mobile-section">
+        <h2 class="section-title">Your Active Bookings</h2>
+
+        <div class="booking-card-mobile">
+            <div class="booking-header-mobile">
+                <span class="booking-id">#TG-2026-001</span>
+                <span class="status-badge in-travel">In Travel</span>
+            </div>
+            <h3 class="booking-title">Southern Coast Beach Tour</h3>
+            <div class="booking-details">
+                <div class="detail-row">
+                    <span class="detail-icon">📅</span>
+                    <span>Feb 18 - 25, 2026</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">👥</span>
+                    <span>2 Adults, 1 Child</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">💰</span>
+                    <span>LKR 168,000</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 62.5%;"></div>
+            </div>
+            <p class="progress-text">Day 5 of 8</p>
+            <div class="booking-actions">
+                <button class="action-btn-mobile whatsapp">💬 Contact Support</button>
+                <button class="action-btn-mobile secondary">📍 Track</button>
+            </div>
+        </div>
+
+        <div class="booking-card-mobile">
+            <div class="booking-header-mobile">
+                <span class="booking-id">#TG-2026-045</span>
+                <span class="status-badge booked">Booked</span>
+            </div>
+            <h3 class="booking-title">Ella & Nuwara Eliya 5D/4N</h3>
+            <div class="booking-details">
+                <div class="detail-row">
+                    <span class="detail-icon">📅</span>
+                    <span>Mar 20 - 24, 2026</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">👥</span>
+                    <span>2 Adults</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">💰</span>
+                    <span>LKR 95,000 (50% Paid)</span>
+                </div>
+            </div>
+            <div class="booking-actions">
+                <button class="action-btn-mobile primary">💳 Pay Balance</button>
+                <button class="action-btn-mobile secondary">📄 Details</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="mobile-section">
+        <h2 class="section-title">Payment Methods</h2>
+        <div class="payment-methods-mobile">
+            <div class="payment-method-mobile">
+                <span class="payment-icon">💳</span>
+                <span class="payment-name">Visa/Mastercard</span>
+            </div>
+            <div class="payment-method-mobile">
+                <span class="payment-icon">📱</span>
+                <span class="payment-name">Dialog mCash</span>
+            </div>
+            <div class="payment-method-mobile">
+                <span class="payment-icon">📲</span>
+                <span class="payment-name">eZ Cash</span>
+            </div>
+            <div class="payment-method-mobile">
+                <span class="payment-icon">🏦</span>
+                <span class="payment-name">Bank Transfer</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Halal Certification Badge -->
+    <section class="mobile-section">
+        <div class="halal-banner">
+            <span class="halal-icon-large">☪</span>
+            <div class="halal-text">
+                <h3>Halal Certified Services</h3>
+                <p>We provide prayer facilities, halal food, and family-friendly tours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item-mobile active">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="#" class="nav-item-mobile">
+            <span class="nav-icon">🔍</span>
+            <span class="nav-label">Search</span>
+        </a>
+        <a href="#" class="nav-item-mobile">
+            <span class="nav-icon">📋</span>
+            <span class="nav-label">Bookings</span>
+        </a>
+        <a href="#" class="nav-item-mobile">
+            <span class="nav-icon">💬</span>
+            <span class="nav-label">Support</span>
+        </a>
+        <a href="#" class="nav-item-mobile">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label">Profile</span>
+        </a>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu">
+            <div class="menu-header">
+                <div class="user-info-mobile">
+                    <div class="user-avatar-mobile">AM</div>
+                    <div class="user-details">
+                        <h3>Ahmed Malik</h3>
+                        <p>ahmed@example.com</p>
+                    </div>
+                </div>
+                <button class="close-menu-btn">✕</button>
+            </div>
+
+            <nav class="menu-nav">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">🔍</span>
+                    <span>Search Packages</span>
+                </a>
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">📋</span>
+                    <span>My Bookings</span>
+                </a>
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">💰</span>
+                    <span>Payments</span>
+                </a>
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">⭐</span>
+                    <span>Saved Destinations</span>
+                </a>
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">💬</span>
+                    <span>WhatsApp Support</span>
+                </a>
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">🚪</span>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="mobile-script.js"></script>
+</body>
+</html>

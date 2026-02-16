@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravellerGlobal - Design Specifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0F172A;
+            color: white;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #10B981, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 20px;
+            color: #94A3B8;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: white;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .color-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: #1E293B;
+        }
+
+        .color-preview {
+            height: 120px;
+        }
+
+        .color-info {
+            padding: 16px;
+        }
+
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .color-code {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #94A3B8;
+        }
+
+        .typography-section {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .type-sample {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .type-sample:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .type-preview {
+            margin-bottom: 12px;
+        }
+
+        .type-specs {
+            display: flex;
+            gap: 32px;
+            font-size: 13px;
+            color: #94A3B8;
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .component-card {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .component-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .component-preview {
+            background: #0F172A;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .component-specs {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.8;
+        }
+
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+        }
+
+        .spacing-item {
+            background: #1E293B;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .spacing-preview {
+            background: #10B981;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .spacing-label {
+            font-size: 12px;
+            color: #94A3B8;
+            margin-bottom: 4px;
+        }
+
+        .spacing-value {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 16px;
+        }
+
+        .icon-item {
+            background: #1E293B;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .icon-preview {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .icon-label {
+            font-size: 12px;
+            color: #94A3B8;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .status-card {
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .status-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .status-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .status-desc {
+            font-size: 13px;
+            color: #94A3B8;
+        }
+
+        .lead-bg { background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.3)); }
+        .booked-bg { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.3)); }
+        .travel-bg { background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.3)); }
+        .completed-bg { background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(124, 58, 237, 0.3)); }
+
+        .button-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .btn-demo {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary-demo {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+        }
+
+        .btn-gold-demo {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+            color: white;
+        }
+
+        .btn-outline-demo {
+            background: transparent;
+            color: #10B981;
+            border: 2px solid #10B981;
+        }
+
+        .btn-whatsapp-demo {
+            background: #25D366;
+            color: white;
+        }
+
+        .grid-showcase {
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .grid-example {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .grid-item {
+            background: #0F172A;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            border: 2px dashed #334155;
+        }
+
+        .code-block {
+            background: #0F172A;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #10B981;
+            overflow-x: auto;
+        }
+
+        .responsive-preview {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .device-frame {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .device-screen {
+            background: #0F172A;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            font-size: 13px;
+        }
+
+        .desktop-screen {
+            width: 300px;
+            height: 200px;
+        }
+
+        .tablet-screen {
+            width: 200px;
+            height: 150px;
+        }
+
+        .mobile-screen {
+            width: 100px;
+            height: 180px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TravellerGlobal Design System</h1>
+            <p>Comprehensive UI/UX specifications for Sri Lankan Travel Agency Platform</p>
+        </div>
+
+        <!-- Color Palette -->
+        <section class="section">
+            <h2 class="section-title">Color Palette</h2>
+
+            <h3 style="margin-bottom: 20px; color: #94A3B8;">Primary Colors</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-preview" style="background: #10B981;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Emerald 500</div>
+                        <div class="color-code">#10B981</div>
+                        <div class="color-code">RGB(16, 185, 129)</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #059669;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Emerald 600</div>
+                        <div class="color-code">#059669</div>
+                        <div class="color-code">RGB(5, 150, 105)</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #F59E0B;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Gold 500</div>
+                        <div class="color-code">#F59E0B</div>
+                        <div class="color-code">RGB(245, 158, 11)</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #D97706;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Gold 600</div>
+                        <div class="color-code">#D97706</div>
+                        <div class="color-code">RGB(217, 119, 6)</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #94A3B8;">Status Colors</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-preview" style="background: #3B82F6;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Blue 500 (Lead)</div>
+                        <div class="color-code">#3B82F6</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #8B5CF6;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Purple 500 (Completed)</div>
+                        <div class="color-code">#8B5CF6</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #EF4444;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Red 500 (Error)</div>
+                        <div class="color-code">#EF4444</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #25D366;"></div>
+                    <div class="color-info">
+                        <div class="color-name">WhatsApp Green</div>
+                        <div class="color-code">#25D366</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; color: #94A3B8;">Neutral Colors</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-preview" style="background: #F9FAFB;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Gray 50 (Background)</div>
+                        <div class="color-code">#F9FAFB</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #E5E7EB;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Gray 200 (Borders)</div>
+                        <div class="color-code">#E5E7EB</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #6B7280;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Gray 600 (Secondary)</div>
+                        <div class="color-code">#6B7280</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview" style="background: #111827;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Gray 900 (Text)</div>
+                        <div class="color-code">#111827</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="section">
+            <h2 class="section-title">Typography</h2>
+
+            <div class="typography-section">
+                <div class="type-sample">
+                    <div class="type-preview" style="font-size: 32px; font-weight: 700;">
+                        Discover Beautiful Sri Lanka
+                    </div>
+                    <div class="type-specs">
+                        <span>H1 - Heading 1</span>
+                        <span>32px / 40px</span>
+                        <span>Bold (700)</span>
+                        <span>Inter</span>
+                    </div>
+                </div>
+
+                <div class="type-sample">
+                    <div class="type-preview" style="font-size: 24px; font-weight: 600;">
+                        Featured Destinations
+                    </div>
+                    <div class="type-specs">
+                        <span>H2 - Heading 2</span>
+                        <span>24px / 32px</span>
+                        <span>SemiBold (600)</span>
+                        <span>Inter</span>
+                    </div>
+                </div>
+
+                <div class="type-sample">
+                    <div class="type-preview" style="font-size: 20px; font-weight: 500;">
+                        Sigiriya Rock Fortress
+                    </div>
+                    <div class="type-specs">
+                        <span>H3 - Heading 3</span>
+                        <span>20px / 28px</span>
+                        <span>Medium (500)</span>
+                        <span>Inter</span>
+                    </div>
+                </div>
+
+                <div class="type-sample">
+                    <div class="type-preview" style="font-size: 16px; font-weight: 400;">
+                        Experience the ancient wonders and pristine beaches of Sri Lanka with our curated travel packages.
+                    </div>
+                    <div class="type-specs">
+                        <span>Body - Paragraph</span>
+                        <span>16px / 24px</span>
+                        <span>Regular (400)</span>
+                        <span>Inter</span>
+                    </div>
+                </div>
+
+                <div class="type-sample">
+                    <div class="type-preview" style="font-size: 14px; font-weight: 400; color: #94A3B8;">
+                        From LKR 15,000 • 7 Days • Central Province
+                    </div>
+                    <div class="type-specs">
+                        <span>Small - Caption</span>
+                        <span>14px / 20px</span>
+                        <span>Regular (400)</span>
+                        <span>Inter</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Pipeline Stages -->
+        <section class="section">
+            <h2 class="section-title">Booking Pipeline Stages</h2>
+            <div class="status-grid">
+                <div class="status-card">
+                    <div class="status-icon lead-bg">📋</div>
+                    <div class="status-label">Lead</div>
+                    <div class="status-desc">Initial customer inquiry and quote</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon booked-bg">✅</div>
+                    <div class="status-label">Booked</div>
+                    <div class="status-desc">Confirmed with payment received</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon travel-bg">✈️</div>
+                    <div class="status-label">In-Travel</div>
+                    <div class="status-desc">Customer currently traveling</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon completed-bg">⭐</div>
+                    <div class="status-label">Completed</div>
+                    <div class="status-desc">Trip finished with rating</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacing System -->
+        <section class="section">
+            <h2 class="section-title">Spacing System</h2>
+            <div class="spacing-grid">
+                <div class="spacing-item">
+                    <div class="spacing-preview" style="height: 4px;"></div>
+                    <div class="spacing-label">XS</div>
+                    <div class="spacing-value">4px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-preview" style="height: 8px;"></div>
+                    <div class="spacing-label">SM</div>
+                    <div class="spacing-value">8px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-preview" style="height: 16px;"></div>
+                    <div class="spacing-label">MD</div>
+                    <div class="spacing-value">16px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-preview" style="height: 24px;"></div>
+                    <div class="spacing-label">LG</div>
+                    <div class="spacing-value">24px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-preview" style="height: 32px;"></div>
+                    <div class="spacing-label">XL</div>
+                    <div class="spacing-value">32px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-preview" style="height: 48px;"></div>
+                    <div class="spacing-label">2XL</div>
+                    <div class="spacing-value">48px</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icons -->
+        <section class="section">
+            <h2 class="section-title">Icon System</h2>
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <div class="icon-preview">✈️</div>
+                    <div class="icon-label">Flight</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-preview">🏨</div>
+                    <div class="icon-label">Hotel</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-preview">🚗</div>
+                    <div class="icon-label">Transport</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-preview">📋</div>
+                    <div class="icon-label">Booking</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-preview">💬</div>
+                    <div class="icon-label">WhatsApp</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-preview">💳</div>
+                    <div class="icon-label">Payment</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-preview">☪</div>
+                    <div class="icon-label">Halal</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-preview">📍</div>
+                    <div class="icon-label">Location</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Button Styles -->
+        <section class="section">
+            <h2 class="section-title">Button Components</h2>
+            <div class="button-showcase">
+                <button class="btn-demo btn-primary-demo">Primary Button</button>
+                <button class="btn-demo btn-gold-demo">Gold Accent</button>
+                <button class="btn-demo btn-outline-demo">Outline Button</button>
+                <button class="btn-demo btn-whatsapp-demo">💬 WhatsApp</button>
+            </div>
+            <div class="code-block">
+.btn-primary {<br>
+&nbsp;&nbsp;background: linear-gradient(135deg, #10B981, #059669);<br>
+&nbsp;&nbsp;color: white;<br>
+&nbsp;&nbsp;padding: 14px 28px;<br>
+&nbsp;&nbsp;border-radius: 8px;<br>
+&nbsp;&nbsp;font-weight: 600;<br>
+}
+            </div>
+        </section>
+
+        <!-- Grid System -->
+        <section class="section">
+            <h2 class="section-title">Grid System</h2>
+            <div class="grid-showcase">
+                <h3 style="margin-bottom: 20px; color: #94A3B8;">4-Column Layout (Desktop)</h3>
+                <div class="grid-example">
+                    <div class="grid-item">Column 1</div>
+                    <div class="grid-item">Column 2</div>
+                    <div class="grid-item">Column 3</div>
+                    <div class="grid-item">Column 4</div>
+                </div>
+                <div class="code-block">
+display: grid;<br>
+grid-template-columns: repeat(4, 1fr);<br>
+gap: 24px;
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Breakpoints -->
+        <section class="section">
+            <h2 class="section-title">Responsive Breakpoints</h2>
+            <div class="responsive-preview">
+                <div class="device-frame">
+                    <div class="device-screen desktop-screen">Desktop</div>
+                    <div style="font-size: 13px; color: #94A3B8;">1440px+</div>
+                    <div style="font-size: 12px; color: #64748B; margin-top: 4px;">4-column grid</div>
+                </div>
+                <div class="device-frame">
+                    <div class="device-screen tablet-screen">Tablet</div>
+                    <div style="font-size: 13px; color: #94A3B8;">1024px - 1440px</div>
+                    <div style="font-size: 12px; color: #64748B; margin-top: 4px;">2-column grid</div>
+                </div>
+                <div class="device-frame">
+                    <div class="device-screen mobile-screen">Mobile</div>
+                    <div style="font-size: 13px; color: #94A3B8;">375px - 768px</div>
+                    <div style="font-size: 12px; color: #64748B; margin-top: 4px;">1-column stack</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Component Examples -->
+        <section class="section">
+            <h2 class="section-title">Component Library</h2>
+            <div class="component-grid">
+                <div class="component-card">
+                    <div class="component-title">Destination Card</div>
+                    <div class="component-preview">
+                        <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.3)); height: 100px; border-radius: 8px; margin-bottom: 12px;"></div>
+                        <div style="font-weight: 600; margin-bottom: 4px;">Sigiriya Rock</div>
+                        <div style="font-size: 13px; color: #94A3B8;">📍 Central Province</div>
+                    </div>
+                    <div class="component-specs">
+                        • Border radius: 12px<br>
+                        • Image height: 200px<br>
+                        • Padding: 16px<br>
+                        • Hover: translateY(-8px)
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-title">Pipeline Card</div>
+                    <div class="component-preview">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-weight: 600; font-size: 14px;">Fatima Hassan</span>
+                            <span>💬</span>
+                        </div>
+                        <div style="font-size: 13px; color: #94A3B8; margin-bottom: 8px;">7-Day Colombo Tour</div>
+                        <div style="display: inline-block; background: rgba(16, 185, 129, 0.2); color: #10B981; padding: 4px 10px; border-radius: 12px; font-size: 11px;">Halal</div>
+                    </div>
+                    <div class="component-specs">
+                        • White background<br>
+                        • Border: 1px solid #E5E7EB<br>
+                        • Draggable<br>
+                        • WhatsApp button
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-title">Status Badge</div>
+                    <div class="component-preview">
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="background: rgba(16, 185, 129, 0.1); color: #10B981; padding: 6px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">Booked</span>
+                            <span style="background: rgba(245, 158, 11, 0.1); color: #F59E0B; padding: 6px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">In-Travel</span>
+                        </div>
+                    </div>
+                    <div class="component-specs">
+                        • Border radius: 12px<br>
+                        • Padding: 6px 12px<br>
+                        • Font size: 12px<br>
+                        • Font weight: 600
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-title">Payment Gateway</div>
+                    <div class="component-preview">
+                        <div style="text-align: center;">
+                            <div style="font-size: 28px; margin-bottom: 8px;">💳</div>
+                            <div style="font-size: 13px; color: #94A3B8;">Visa/Mastercard</div>
+                        </div>
+                    </div>
+                    <div class="component-specs">
+                        • Border: 1px solid #E5E7EB<br>
+                        • Padding: 16px<br>
+                        • Hover: border-color emerald<br>
+                        • Clickable
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px 0; border-top: 1px solid #334155; margin-top: 60px; color: #64748B;">
+            <p>TravellerGlobal Design System v1.0</p>
+            <p style="margin-top: 8px; font-size: 14px;">Built for Sri Lankan Travel Excellence</p>
+        </div>
+    </div>
+</body>
+</html>
