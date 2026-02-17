@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Viewer - Test</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0F172A;
+            color: #10B981;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        h1 { color: #F59E0B; }
+        .instructions {
+            background: #1E293B;
+            border: 2px solid #10B981;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            color: #94A3B8;
+        }
+        .code {
+            background: #000;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            color: #10B981;
+        }
+        button {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 10px 10px 0;
+        }
+        button:hover { opacity: 0.9; }
+        #output {
+            background: #1E293B;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Feedback Viewer - Instructions</h1>
+
+    <div class="instructions">
+        <h2>How to View Feedback:</h2>
+
+        <h3>Step 1: Go to your feedback page</h3>
+        <div class="code">https://ramandsingh.github.io/travellerglobal-ui/feedback.html</div>
+
+        <h3>Step 2: Open Developer Console</h3>
+        <p>Press F12 (or Cmd+Option+I on Mac)</p>
+
+        <h3>Step 3: Go to Console tab</h3>
+
+        <h3>Step 4: Run these commands:</h3>
+        <div class="code">
+// View all feedback
+viewAllFeedback()
+
+// Export as JSON file
+exportFeedback()
+
+// Get count
+localStorage.getItem('designFeedback') ? JSON.parse(localStorage.getItem('designFeedback')).length : 0
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h2>🧪 Test Feedback System:</h2>
+        <p>Click below to simulate a feedback submission (for testing only):</p>
+
+        <button onclick="addTestFeedback()">Add Test Feedback</button>
+        <button onclick="viewFeedback()">View Feedback</button>
+        <button onclick="clearFeedback()">Clear All Feedback</button>
+        <button onclick="exportToFile()">Export JSON</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function addTestFeedback() {
+            const testFeedback = {
+                timestamp: new Date().toISOString(),
+                name: "John Doe (Test)",
+                email: "test@example.com",
+                rating: "excellent",
+                sections: ["customer-dashboard", "agent-portal", "color-scheme"],
+                positives: "The color scheme is beautiful! Love the emerald green and gold combination. The booking pipeline is very intuitive.",
+                improvements: "Mobile navigation could be more prominent. Consider adding a quick tour for first-time users.",
+                additional: "Overall excellent work! Looking forward to seeing this in production."
+            };
+
+            const allFeedback = JSON.parse(localStorage.getItem('designFeedback') || '[]');
+            allFeedback.push(testFeedback);
+            localStorage.setItem('designFeedback', JSON.stringify(allFeedback));
+
+            document.getElementById('output').textContent = '✅ Test feedback added!\n\n' + JSON.stringify(testFeedback, null, 2);
+        }
+
+        function viewFeedback() {
+            const allFeedback = JSON.parse(localStorage.getItem('designFeedback') || '[]');
+
+            if (allFeedback.length === 0) {
+                document.getElementById('output').textContent = '⚠️ No feedback found.\n\nTry adding test feedback first.';
+                return;
+            }
+
+            let output = `📊 Total Feedback Entries: ${allFeedback.length}\n\n`;
+            output += '═══════════════════════════════════════\n\n';
+
+            allFeedback.forEach((feedback, index) => {
+                output += `Entry #${index + 1}\n`;
+                output += `Date: ${new Date(feedback.timestamp).toLocaleString()}\n`;
+                output += `Name: ${feedback.name}\n`;
+                output += `Rating: ${feedback.rating.toUpperCase()}\n`;
+                output += `Sections: ${feedback.sections.join(', ')}\n\n`;
+                output += `Positives:\n${feedback.positives}\n\n`;
+                output += `Improvements:\n${feedback.improvements}\n\n`;
+                if (feedback.additional) {
+                    output += `Additional:\n${feedback.additional}\n\n`;
+                }
+                output += '═══════════════════════════════════════\n\n';
+            });
+
+            document.getElementById('output').textContent = output;
+        }
+
+        function clearFeedback() {
+            if (confirm('Are you sure you want to clear all feedback?')) {
+                localStorage.removeItem('designFeedback');
+                document.getElementById('output').textContent = '✅ All feedback cleared!';
+            }
+        }
+
+        function exportToFile() {
+            const allFeedback = JSON.parse(localStorage.getItem('designFeedback') || '[]');
+
+            if (allFeedback.length === 0) {
+                alert('No feedback to export!');
+                return;
+            }
+
+            const dataStr = JSON.stringify(allFeedback, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `design-feedback-${Date.now()}.json`;
+            link.click();
+
+            document.getElementById('output').textContent = '✅ Feedback exported as JSON file!';
+        }
+
+        // Display instructions on load
+        document.getElementById('output').textContent = '👆 Click "Add Test Feedback" to simulate a submission, then "View Feedback" to see it!';
+    </script>
+</body>
+</html>
